@@ -21,5 +21,7 @@ class CountryCurrency(models.Model):
         return f"CountryCurrency(Currency:{self.currency})"
 
 class CountryCurrencyUser(models.Model):
-    id_user = models.IntegerField()
-    id_countrycurrency = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    countrycurrency = models.ForeignKey(CountryCurrency, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"Currency Users(User:{self.user}, Country Currency:{self.countrycurrency})"
