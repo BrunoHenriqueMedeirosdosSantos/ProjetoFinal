@@ -25,3 +25,9 @@ class CountryCurrencyUser(models.Model):
     countrycurrency = models.ForeignKey(CountryCurrency, on_delete=models.CASCADE)
     def __str__(self):
         return f"Currency Users(User:{self.user}, Country Currency:{self.countrycurrency})"
+
+
+class FavoriteCoins(models.Model):
+    name = models.CharField(max_length=30)
+    symbol = models.CharField(max_length = 5)
+    
